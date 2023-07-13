@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class RailcarInit : MonoBehaviour , ITrainPiece
+public class RailcarInit : MonoBehaviour, ITrainPiece
 {
-    public Transform FrontCoupling { get; set; }
-    public Transform BackCoupling { get; set; }
+    public Transform _frontCoupling;
+    public Transform _backCoupling;
+
+    public Transform FrontCoupling { get{return _frontCoupling;}  set { } }
+    public Transform BackCoupling { get { return _backCoupling; } set { } }
 
     public Railcar railcar { get; set; }
     public float Distance { get; set; }

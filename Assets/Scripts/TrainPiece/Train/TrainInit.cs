@@ -5,13 +5,14 @@ public class TrainInit : MonoBehaviour, ITrainPiece
 {
     [SerializeField] RailcarType[] _railcarTypes;
     [SerializeField] RailCarData _swordData;
+    public Transform _backCoupling;
 
     public float Distance { get { return train.Distans;} set { train.Distans = value; } }
 
     public Train train { get; set; }
 
     public Transform FrontCoupling { get { return null; } set { } }
-    public Transform BackCoupling { get; set; }
+    public Transform BackCoupling { get { return _backCoupling; } set { } }
 
 
     private void Awake()

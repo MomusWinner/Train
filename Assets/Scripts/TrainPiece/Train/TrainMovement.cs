@@ -7,7 +7,6 @@ public class TrainMovement : MonoBehaviour
     [SerializeField] float _groundDistance;
     [SerializeField] PathCreator _pathCreator;
     [SerializeField] EndOfPathInstruction _end;
-    [SerializeField] float _distance;
     [SerializeField] float _speed;
 
     List<float> _distances;
@@ -17,7 +16,13 @@ public class TrainMovement : MonoBehaviour
 
     private void Start()
     {
+        _distances = new List<float>();
+        Debug.Log(gameObject.GetComponent<TrainInit>().BackCoupling.position);
+
         _railcars = gameObject.GetComponent<TrainInit>().train.GetRailcarGameObjects();
+        CountDistancesBetweenRailcar<TrainInit,RailcarInit>(gameObject, _railcars[0]);
+
+
         CountDistancesBetweenRailcars();
         ArrangeRailcar();
 
@@ -56,7 +61,7 @@ public class TrainMovement : MonoBehaviour
     }
 
     public void CountDistancesBetweenRailcar<T1, T2>(GameObject obj1, GameObject obj2) where T1 : ITrainPiece where T2 : ITrainPiece
-    { 
+    {
         float distanceAC = Vector3.Distance(obj1.transform.position,
             obj1.GetComponent<T1>().BackCoupling.position);
 
@@ -64,18 +69,22 @@ public class TrainMovement : MonoBehaviour
             obj2.GetComponent<T2>().FrontCoupling.position);
 
         float distance = distanceAC + distanceCB;
-
-        obj1.GetComponent<T1>().Distance = distance;
+ 
+        _distances.Add(distance);
     }
 
     private void ArrangeRailcar()
     {
         PursuePath(gameObject, _time, _end, _groundDistance);
+
+        if (_railcars.Length == null)
+            return;
+
         float railcarTime = _time;
 
         for (int i = 0; i < _railcars.Length; i++)
         {
-            railcarTime -= _railcars[i].GetComponent<RailcarInit>().Distance;
+            railcarTime -= _distances[i +1];
             PursuePath(_railcars[i], railcarTime, _end, _groundDistance);
         }
     }
