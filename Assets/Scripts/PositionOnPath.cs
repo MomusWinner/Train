@@ -3,7 +3,7 @@ using UnityEngine;
 
 
 [ExecuteInEditMode]
-public class ActionPointPosition : MonoBehaviour
+public class PositionOnPath : MonoBehaviour
 {
     [SerializeField] PathCreator _pathCreator;
     [Range(0f, 1f)]

@@ -103,7 +103,6 @@ public class TrainMovement : MonoBehaviour
 
     IEnumerator StopMovingCoroutine()
     {
-        Debug.Log("Stop");
         if (_speed > 0)
         {
             yield return new WaitForSeconds(0.01f);
