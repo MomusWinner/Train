@@ -7,13 +7,14 @@ public class TrainMovement : MonoBehaviour
     [SerializeField] float _groundDistance;
     [SerializeField] PathCreator _pathCreator;
     [SerializeField] EndOfPathInstruction _end;
-    [SerializeField] float _speed;
+    [SerializeField] float _maxSpeed;
+    [SerializeField] float _changingSpeedCoefficient;
 
     List<float> _distances;
-
     GameObject[] _railcars;
+    
     float _time;
-
+    float _speed;
     private void Start()
     {
         _distances = new List<float>();
@@ -28,6 +29,7 @@ public class TrainMovement : MonoBehaviour
     public void Update()
     {
         Drive();
+
     }
 
     private void Drive()
@@ -86,5 +88,21 @@ public class TrainMovement : MonoBehaviour
         }
     }
 
+    public void StopDrive()
+    {
+        while(_speed > 0)
+        {
+            _speed -= _changingSpeedCoefficient;
+        }
+    }
+
+    public void StartDrive()
+    {
+        while (_speed < _maxSpeed)
+        {
+            _speed -= _changingSpeedCoefficient;
+        }
+        _speed = _maxSpeed;
+    }
 
 }

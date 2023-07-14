@@ -14,9 +14,6 @@ public class ActionPointPosition : MonoBehaviour
 
     private void Update()
     {
-
-        Debug.Log(1);
         transform.position = _pathCreator.path.GetPointAtTime(_t);
-        
     }
 }
