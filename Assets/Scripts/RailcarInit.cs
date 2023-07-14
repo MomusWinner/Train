@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class RailcarInit : MonoBehaviour, ITrainPiece
 {
-    public Transform _frontCoupling;
-    public Transform _backCoupling;
+    [SerializeField] Transform _frontCoupling;
+    [SerializeField] Transform _backCoupling;
 
     public Transform FrontCoupling { get{return _frontCoupling;}  set { } }
     public Transform BackCoupling { get { return _backCoupling; } set { } }

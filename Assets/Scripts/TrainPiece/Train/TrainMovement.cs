@@ -17,11 +17,8 @@ public class TrainMovement : MonoBehaviour
     private void Start()
     {
         _distances = new List<float>();
-        Debug.Log(gameObject.GetComponent<TrainInit>().BackCoupling.position);
 
         _railcars = gameObject.GetComponent<TrainInit>().train.GetRailcarGameObjects();
-        CountDistancesBetweenRailcar<TrainInit,RailcarInit>(gameObject, _railcars[0]);
-
 
         CountDistancesBetweenRailcars();
         ArrangeRailcar();
@@ -46,7 +43,7 @@ public class TrainMovement : MonoBehaviour
         gObgect.transform.position = _pathCreator.path.GetPointAtDistance(time, end) + Vector3.up * groundDistance;
         gObgect.transform.rotation = _pathCreator.path.GetRotationAtDistance(time, end);
     }
-
+    
     private void CountDistancesBetweenRailcars()
     {
         if (_railcars == null)
@@ -77,14 +74,14 @@ public class TrainMovement : MonoBehaviour
     {
         PursuePath(gameObject, _time, _end, _groundDistance);
 
-        if (_railcars.Length == null)
+        if (_railcars == null)
             return;
 
         float railcarTime = _time;
 
         for (int i = 0; i < _railcars.Length; i++)
         {
-            railcarTime -= _distances[i +1];
+            railcarTime -= _distances[i];
             PursuePath(_railcars[i], railcarTime, _end, _groundDistance);
         }
     }

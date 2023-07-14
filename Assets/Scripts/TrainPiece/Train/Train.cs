@@ -12,12 +12,14 @@ public class Train : TrainPiece
 
     public GameObject[] GetRailcarGameObjects() 
     {    
+        if (Railcars.Count == 0)
+            return null;
+        
         GameObject[] gameObjects = new GameObject[Railcars.Count];
 
         for (int i = 0; i < Railcars.Count; i++)
-        {
             gameObjects[i] = Railcars[i];
-        }
+        
 
         return gameObjects;
     }
