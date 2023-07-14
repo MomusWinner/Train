@@ -1,4 +1,5 @@
 using PathCreation;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,8 +16,11 @@ public class TrainMovement : MonoBehaviour
     
     float _time;
     float _speed;
+
     private void Start()
     {
+        StartMoving();
+
         _distances = new List<float>();
 
         _railcars = gameObject.GetComponent<TrainInit>().train.GetRailcarGameObjects();
@@ -27,9 +31,8 @@ public class TrainMovement : MonoBehaviour
     }
 
     public void Update()
-    {
+    {  
         Drive();
-
     }
 
     private void Drive()
@@ -88,21 +91,39 @@ public class TrainMovement : MonoBehaviour
         }
     }
 
-    public void StopDrive()
+    public void StopMoving()
     {
-        while(_speed > 0)
-        {
-            _speed -= _changingSpeedCoefficient;
-        }
+        StartCoroutine("StopMovingCoroutine");
     }
 
-    public void StartDrive()
+    public void StartMoving()
     {
-        while (_speed < _maxSpeed)
-        {
-            _speed -= _changingSpeedCoefficient;
-        }
-        _speed = _maxSpeed;
+        StartCoroutine("StartMovingCoroutine");
     }
 
+    IEnumerator StopMovingCoroutine()
+    {
+        Debug.Log("Stop");
+        if (_speed > 0)
+        {
+            yield return new WaitForSeconds(0.01f);
+            _speed -= _changingSpeedCoefficient;
+            StartCoroutine("StopMovingCoroutine");
+        }
+        else
+            _speed = 0;
+    }
+
+    IEnumerator StartMovingCoroutine()
+    {
+        if (_speed < _maxSpeed)
+        {
+            yield return new WaitForSeconds(0.01f);
+            _speed += _changingSpeedCoefficient;
+            StartCoroutine("StartMovingCoroutine");
+        }
+        else
+            _speed = _maxSpeed;
+            yield break;
+    }
 }

@@ -407,14 +407,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.42063445, y: -0, z: -0, w: 0.9072302}
+  m_LocalPosition: {x: 0, y: 27.81, z: -31.69}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 49.749, y: 0, z: 0}
 --- !u!1 &1830853692
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,9 +507,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1914853510}
+  - component: {fileID: 1914853512}
   - component: {fileID: 1914853509}
   - component: {fileID: 1914853511}
-  - component: {fileID: 1914853512}
   m_Layer: 0
   m_Name: ActionPoint
   m_TagString: Untagged
@@ -530,7 +530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pathCreator: {fileID: 2001565800}
-  _t: 0.449
+  _t: 0.169
 --- !u!4 &1914853510
 Transform:
   m_ObjectHideFlags: 0
@@ -539,7 +539,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1914853508}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.904746, y: 0, z: -5.0860047}
+  m_LocalPosition: {x: -7.0603676, y: 0, z: -16.785553}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -574,7 +574,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -675,6 +675,59 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2138309390 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3129276863106654866, guid: 11e1114dcfb28804b91599f9bb5291f5, type: 3}
+  m_PrefabInstance: {fileID: 3129276863267142149}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &2138309394
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138309390}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &2138309395
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138309390}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9268887, y: 1.00548, z: 4.0125885}
+  m_Center: {x: 0.03655559, y: 0.49570018, z: 0.49656343}
 --- !u!1001 &3129276863267142149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -683,42 +736,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 196139162, guid: 11e1114dcfb28804b91599f9bb5291f5, type: 3}
-      propertyPath: _pathCreator
-      value: 
-      objectReference: {fileID: 2001565800}
-    - target: {fileID: 196139162, guid: 11e1114dcfb28804b91599f9bb5291f5, type: 3}
-      propertyPath: _railcarTypes.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 196139162, guid: 11e1114dcfb28804b91599f9bb5291f5, type: 3}
-      propertyPath: _railcarTypes.Array.data[0]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 196139162, guid: 11e1114dcfb28804b91599f9bb5291f5, type: 3}
-      propertyPath: _railcarTypes.Array.data[1]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 196139162, guid: 11e1114dcfb28804b91599f9bb5291f5, type: 3}
-      propertyPath: _railcarTypes.Array.data[2]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 196139162, guid: 11e1114dcfb28804b91599f9bb5291f5, type: 3}
-      propertyPath: _railcarTypes.Array.data[3]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 196139162, guid: 11e1114dcfb28804b91599f9bb5291f5, type: 3}
-      propertyPath: _railcarTypes.Array.data[4]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 196139162, guid: 11e1114dcfb28804b91599f9bb5291f5, type: 3}
-      propertyPath: _railcarTypes.Array.data[5]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 196139162, guid: 11e1114dcfb28804b91599f9bb5291f5, type: 3}
-      propertyPath: _railcarTypes.Array.data[6]
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3129276863106654866, guid: 11e1114dcfb28804b91599f9bb5291f5, type: 3}
       propertyPath: m_Name
       value: Train
@@ -768,15 +785,27 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3129276863106654877, guid: 11e1114dcfb28804b91599f9bb5291f5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129276863106654877, guid: 11e1114dcfb28804b91599f9bb5291f5, type: 3}
       propertyPath: _pathCreator
       value: 
       objectReference: {fileID: 2001565800}
     - target: {fileID: 3129276863106654877, guid: 11e1114dcfb28804b91599f9bb5291f5, type: 3}
-      propertyPath: _changSpeedCoefficient
-      value: 1
+      propertyPath: _changingSpeedCoefficient
+      value: 0.05
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3129276862723393521, guid: 11e1114dcfb28804b91599f9bb5291f5, type: 3}
+    - {fileID: 3129276862679176222, guid: 11e1114dcfb28804b91599f9bb5291f5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3129276863106654866, guid: 11e1114dcfb28804b91599f9bb5291f5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2138309394}
+    - targetCorrespondingSourceObject: {fileID: 3129276863106654866, guid: 11e1114dcfb28804b91599f9bb5291f5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2138309395}
   m_SourcePrefab: {fileID: 100100000, guid: 11e1114dcfb28804b91599f9bb5291f5, type: 3}

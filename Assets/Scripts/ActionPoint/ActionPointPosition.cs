@@ -9,9 +9,6 @@ public class ActionPointPosition : MonoBehaviour
     [Range(0f, 1f)]
     [SerializeField] float _t;
 
-
-
-
     private void Update()
     {
         transform.position = _pathCreator.path.GetPointAtTime(_t);
