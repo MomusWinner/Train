@@ -8,9 +8,7 @@ public class TrainInit : MonoBehaviour, ITrainPiece
     [SerializeField] Transform _backCoupling;
 
     public float Distance { get { return train.Distans;} set { train.Distans = value; } }
-
     public Train train { get; set; }
-
     public Transform FrontCoupling { get { return null; } set { } }
     public Transform BackCoupling { get { return _backCoupling; } set { } }
 
