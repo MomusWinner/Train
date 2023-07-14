@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3129276862679176223}
   - component: {fileID: 3129276862679176216}
   - component: {fileID: 3129276862679176217}
-  - component: {fileID: 3129276862679176222}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -84,27 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3129276862679176222
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3129276862679176220}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3129276862723393527
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,7 +94,6 @@ GameObject:
   - component: {fileID: 3129276862723393526}
   - component: {fileID: 3129276862723393523}
   - component: {fileID: 3129276862723393520}
-  - component: {fileID: 3129276862723393521}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -189,27 +166,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3129276862723393521
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3129276862723393527}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3129276863106654866
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,6 +177,8 @@ GameObject:
   - component: {fileID: 3129276863106654876}
   - component: {fileID: 196139162}
   - component: {fileID: 3129276863106654877}
+  - component: {fileID: 9122262011034749435}
+  - component: {fileID: 545023621305145522}
   m_Layer: 0
   m_Name: Train
   m_TagString: Train
@@ -258,9 +216,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb33829d88e17f44891da2bd0cef30bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _railcarTypes: 00000000
   _swordData: {fileID: 11400000, guid: ef0c5f715a5b1324292588efa965b9c0, type: 2}
   _backCoupling: {fileID: 1449012764694763775}
+  railcarTypes: 
 --- !u!114 &3129276863106654877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,7 +235,55 @@ MonoBehaviour:
   _pathCreator: {fileID: 0}
   _end: 0
   _maxSpeed: 5
-  _changingSpeedCoefficient: 0.01
+  _changingSpeedCoefficient: 0.05
+--- !u!54 &9122262011034749435
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3129276863106654866}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &545023621305145522
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3129276863106654866}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9268887, y: 1.00548, z: 4.0125885}
+  m_Center: {x: 0.03655559, y: 0.49570018, z: 0.49656343}
 --- !u!1001 &1077078841082165933
 PrefabInstance:
   m_ObjectHideFlags: 0

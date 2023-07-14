@@ -6,11 +6,11 @@ using UnityEngine;
 public class TrainMovement : MonoBehaviour
 {
     [SerializeField] float _groundDistance;
-    [SerializeField] PathCreator _pathCreator;
     [SerializeField] EndOfPathInstruction _end;
     [SerializeField] float _maxSpeed;
     [SerializeField] float _changingSpeedCoefficient;
 
+    public PathCreator _path;
     List<float> _distances;
     GameObject[] _railcars;
     
@@ -45,8 +45,8 @@ public class TrainMovement : MonoBehaviour
 
     private void PursuePath(GameObject gObgect,float time, EndOfPathInstruction end, float groundDistance)
     {
-        gObgect.transform.position = _pathCreator.path.GetPointAtDistance(time, end) + Vector3.up * groundDistance;
-        gObgect.transform.rotation = _pathCreator.path.GetRotationAtDistance(time, end);
+        gObgect.transform.position = _path.path.GetPointAtDistance(time, end) + Vector3.up * groundDistance;
+        gObgect.transform.rotation = _path.path.GetRotationAtDistance(time, end);
     }
     
     private void CountDistancesBetweenRailcars()

@@ -3,12 +3,12 @@ using UnityEngine;
 [RequireComponent(typeof(TrainMovement))]
 public class TrainInit : MonoBehaviour, ITrainPiece
 {
-    [SerializeField] RailcarType[] _railcarTypes;
     [SerializeField] RailCarData _swordData;
     [SerializeField] Transform _backCoupling;
 
-    public float Distance { get { return train.Distans;} set { train.Distans = value; } }
     public Train train { get; set; }
+    public RailcarType[] railcarTypes;
+    public float Distance { get { return train.Distans;} set { train.Distans = value; } }
     public Transform FrontCoupling { get { return null; } set { } }
     public Transform BackCoupling { get { return _backCoupling; } set { } }
 
@@ -21,9 +21,9 @@ public class TrainInit : MonoBehaviour, ITrainPiece
 
     private void ÑreateRailcars()
     {
-        for (int i = 0; i < _railcarTypes.Length; i++)
+        for (int i = 0; i < railcarTypes.Length; i++)
         {
-            GameObject railcar = Instantiate(_swordData.Railcars[(int)_railcarTypes[i]],
+            GameObject railcar = Instantiate(_swordData.Railcars[(int)railcarTypes[i]],
                 transform.position, Quaternion.identity);
 
             train.Railcars.Add(railcar);
