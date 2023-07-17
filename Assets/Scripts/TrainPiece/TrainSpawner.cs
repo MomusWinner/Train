@@ -16,16 +16,16 @@ public class TrainSpawner : MonoBehaviour
 
     void CreateTrain()
     {
-        RailcarType[] randRailcar = new RailcarType[_wagonsCount];
+        RailcarType[] randRailcars = new RailcarType[_wagonsCount];
 
         for (int i = 0; i < _wagonsCount; i++)
         {
-            randRailcar[i] = (RailcarType)UnityEngine.Random.Range(0, Enum.GetNames(typeof(RailcarType)).Length);
+            randRailcars[i] = (RailcarType)UnityEngine.Random.Range(0, Enum.GetNames(typeof(RailcarType)).Length);
         }
 
-        _train.GetComponent<TrainMovement>().distancePath = GetComponent<PositionOnPathAtDistance>().GetDistance();
-        _train.GetComponent<TrainInit>().railcarTypes = randRailcar;
-        _train.GetComponent<TrainMovement>().path = _path;
+        float distance = GetComponent<PositionOnPathAtDistance>().GetDistance();
+
+        _train.GetComponent<TrainInit>().InitTrain(randRailcars, _path, distance);
         Instantiate(_train);
 
 

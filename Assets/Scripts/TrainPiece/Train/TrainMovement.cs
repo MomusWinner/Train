@@ -28,7 +28,6 @@ public class TrainMovement : MonoBehaviour
 
         CountDistancesBetweenRailcars();
         ArrangeRailcar();
-
     }
 
     public void Update()
