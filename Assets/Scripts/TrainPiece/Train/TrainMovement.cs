@@ -10,12 +10,13 @@ public class TrainMovement : MonoBehaviour
     [SerializeField] float _maxSpeed;
     [SerializeField] float _changingSpeedCoefficient;
 
-    public PathCreator _path;
     List<float> _distances;
     GameObject[] _railcars;
     
-    float _time;
     float _speed;
+
+    public PathCreator path;
+    public float distancePath;
 
     private void Start()
     {
@@ -37,7 +38,7 @@ public class TrainMovement : MonoBehaviour
 
     private void Drive()
     {
-        _time += Time.deltaTime * _speed;
+        distancePath += Time.deltaTime * _speed;
 
         ArrangeRailcar();
 
@@ -45,8 +46,8 @@ public class TrainMovement : MonoBehaviour
 
     private void PursuePath(GameObject gObgect,float time, EndOfPathInstruction end, float groundDistance)
     {
-        gObgect.transform.position = _path.path.GetPointAtDistance(time, end) + Vector3.up * groundDistance;
-        gObgect.transform.rotation = _path.path.GetRotationAtDistance(time, end);
+        gObgect.transform.position = path.path.GetPointAtDistance(time, end) + Vector3.up * groundDistance;
+        gObgect.transform.rotation = path.path.GetRotationAtDistance(time, end);
     }
     
     private void CountDistancesBetweenRailcars()
@@ -77,12 +78,12 @@ public class TrainMovement : MonoBehaviour
 
     private void ArrangeRailcar()
     {
-        PursuePath(gameObject, _time, _end, _groundDistance);
+        PursuePath(gameObject, distancePath, _end, _groundDistance);
 
         if (_railcars == null)
             return;
 
-        float railcarTime = _time;
+        float railcarTime = distancePath;
 
         for (int i = 0; i < _railcars.Length; i++)
         {

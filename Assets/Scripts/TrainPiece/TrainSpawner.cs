@@ -2,6 +2,7 @@ using PathCreation;
 using System;
 using UnityEngine;
 
+[RequireComponent(typeof(PositionOnPathAtDistance))]
 public class TrainSpawner : MonoBehaviour
 {
     [SerializeField] GameObject _train;
@@ -13,23 +14,18 @@ public class TrainSpawner : MonoBehaviour
         CreateTrain();
     }
 
-    void Update()
-    {
-        
-    }
-
-
-
     void CreateTrain()
     {
-        RailcarType[] randRaicar = new RailcarType[_wagonsCount];
+        RailcarType[] randRailcar = new RailcarType[_wagonsCount];
 
         for (int i = 0; i < _wagonsCount; i++)
         {
-            randRaicar[i] = (RailcarType)UnityEngine.Random.Range(0, Enum.GetNames(typeof(RailcarType)).Length);
+            randRailcar[i] = (RailcarType)UnityEngine.Random.Range(0, Enum.GetNames(typeof(RailcarType)).Length);
         }
-        _train.GetComponent<TrainInit>().railcarTypes = randRaicar;
-        _train.GetComponent<TrainInit>().;
+
+        _train.GetComponent<TrainMovement>().distancePath = GetComponent<PositionOnPathAtDistance>().GetDistance();
+        _train.GetComponent<TrainInit>().railcarTypes = randRailcar;
+        _train.GetComponent<TrainMovement>().path = _path;
         Instantiate(_train);
 
 
